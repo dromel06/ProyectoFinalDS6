@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">ProyectFinalDes6</string>
+    <string name="title_activity_tareas">Tareas</string>
+
+
+    <!-- Strings used for Tareas Activity and extras -->
+
+    <string name="tareas">Lista De Tareas</string>
+    <string name="nuevaTarea">Nueva Tarea</string>
+    <string name="actualizarTarea">Actualizar Tarea</string>
+    <string name="nombre">Nombre</string>
+    <string name="fecha">Fecha</string>
+    <string name="estado">Estado</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>\
+    <string name="todo">Todo</string>
+    <string name="pendiente">Pendiente</string>
+    <string name="proceso">En Proceso</string>
+    <string name="completado">Completado</string>
+    <string name="spn_title">Escoja un estado</string>
+    <string-array name="estados">
+        <item>Todo</item>
+        <item>Pendiente</item>
+        <item>En proceso</item>
+        <item>Completado</item>
+    </string-array>
+
 </resources>
