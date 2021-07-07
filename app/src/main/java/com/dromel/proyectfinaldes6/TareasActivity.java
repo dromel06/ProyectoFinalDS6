@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-public class TareasActivity extends AppCompatActivity {
+public class TareasActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner sp_estado;
     ListView lv_tareas;
@@ -26,13 +26,18 @@ public class TareasActivity extends AppCompatActivity {
         admin = new AdminSQLiteHelper(this, "db", null, 1);
         sp_estado = (Spinner)findViewById(R.id.spinnerEstados);
         lv_tareas = (ListView)findViewById(R.id.lvTareas);
+        sp_estado.setOnItemSelectedListener(this);
         ListarTareas();
 
     }
 
-    public void Listar(View view){
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         ListarTareas();
     }
+
 
     public void ListarTareas(){
         SQLiteDatabase base = admin.getWritableDatabase();
@@ -65,11 +70,12 @@ public class TareasActivity extends AppCompatActivity {
                 Intent actualizar = new Intent(view.getContext(), actualizarTareaActivity.class);
                 actualizar.putExtra("id", lista[position][0]);
                 actualizar.putExtra("nombre", lista[position][1]);
-                actualizar.putExtra("precio", lista[position][2]);
+                actualizar.putExtra("fecha", lista[position][2]);
                 actualizar.putExtra("estado", lista[position][3]);
                 startActivity(actualizar);
             }
         });
+
 
 
 
@@ -79,5 +85,16 @@ public class TareasActivity extends AppCompatActivity {
     public void  nuevaTarea(View view){
         Intent intent = new Intent(this, nuevaTareaActivity.class);
         startActivity(intent);
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ListarTareas();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        ListarTareas();
     }
 }

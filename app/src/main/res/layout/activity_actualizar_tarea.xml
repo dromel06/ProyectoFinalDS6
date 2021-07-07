@@ -97,6 +97,7 @@
         android:layout_marginTop="12dp"
         android:autofillHints=""
         android:ems="10"
+        android:focusable="false"
         android:hint="@string/fecha"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="@+id/guideline11"

@@ -21,7 +21,7 @@
     <string-array name="estados">
         <item>Todo</item>
         <item>Pendiente</item>
-        <item>En proceso</item>
+        <item>En Proceso</item>
         <item>Completado</item>
     </string-array>
 

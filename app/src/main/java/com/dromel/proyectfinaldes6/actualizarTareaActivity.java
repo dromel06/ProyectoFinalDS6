@@ -1,16 +1,21 @@
 package com.dromel.proyectfinaldes6;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class actualizarTareaActivity extends AppCompatActivity {
+import com.dromel.proyectfinaldes6.Clases.DatePickerFragment;
+
+public class actualizarTareaActivity extends AppCompatActivity implements View.OnClickListener {
 
     String id, nombre, fecha, estado, newNombre, newFecha, newEstado;
     EditText txt_nombre, txt_fecha;
@@ -34,7 +39,7 @@ public class actualizarTareaActivity extends AppCompatActivity {
         rb_completado = (RadioButton)findViewById(R.id.rbCompletado);
 //      activar variable admin
         admin = new AdminSQLiteHelper(this, "db", null, 1);
-
+        txt_fecha.setOnClickListener(this);
         MostrarInfo();
 
     }
@@ -50,6 +55,7 @@ public class actualizarTareaActivity extends AppCompatActivity {
         else{
             rb_proceso.setChecked(true);
         }
+
     }
 
     public void Actualizar(View view){
@@ -72,10 +78,11 @@ public class actualizarTareaActivity extends AppCompatActivity {
                 tarea.put("nombre", newNombre);
                 tarea.put("fecha", newFecha);
                 tarea.put("estado", newEstado);
-                int cantidad = base.update("tareas", tarea, "idTareas = '" + id+"'", null);
+                int cantidad = base.update("tareas", tarea, "idTareas = '" + id +"'", null);
                 base.close();
                 if(cantidad > 0){
                     Toast.makeText(this, "Tarea Actualizada", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 }
                 else{
                     Toast.makeText(this, "Error al modificar la tarea", Toast.LENGTH_SHORT).show();
@@ -108,6 +115,34 @@ public class actualizarTareaActivity extends AppCompatActivity {
         else{
             Toast.makeText(this, "Error con esta tarea", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.txtfechaAAT:
+                showDatePickerDialog();
+                break;
+        }
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                txt_fecha.setText(selectedDate);
+            }
+        });
+
+        newFragment.show(getActivity().getSupportFragmentManager(), "datePicker");
+
+
+    }
+
+    public FragmentActivity getActivity() {
+        return this;
     }
 
 
