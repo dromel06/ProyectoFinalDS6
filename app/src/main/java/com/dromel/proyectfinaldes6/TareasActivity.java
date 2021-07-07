@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -57,6 +58,18 @@ public class TareasActivity extends AppCompatActivity {
         base.close();
         adap = new AdaptadorTarea(this, lista, fila.getCount());
         lv_tareas.setAdapter(adap);
+
+        lv_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent actualizar = new Intent(view.getContext(), actualizarTareaActivity.class);
+                actualizar.putExtra("id", lista[position][0]);
+                actualizar.putExtra("nombre", lista[position][1]);
+                actualizar.putExtra("precio", lista[position][2]);
+                actualizar.putExtra("estado", lista[position][3]);
+                startActivity(actualizar);
+            }
+        });
 
 
 
