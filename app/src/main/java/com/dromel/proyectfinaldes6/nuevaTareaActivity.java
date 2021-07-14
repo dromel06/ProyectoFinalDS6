@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dromel.proyectfinaldes6.Clases.DatePickerFragment;
@@ -27,7 +28,6 @@ public class nuevaTareaActivity extends AppCompatActivity implements View.OnClic
 
         et_nombre = (EditText)findViewById(R.id.txtNombreANT);
         et_fecha = (EditText)findViewById(R.id.txtfechaANT);
-
         admin = new AdminSQLiteHelper(this, "db", null, 1);
         et_fecha.setOnClickListener(this);
     }
@@ -74,7 +74,7 @@ public class nuevaTareaActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
-                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                final String selectedDate = day + "/" + (month+1) + "/" + year;
                 et_fecha.setText(selectedDate);
             }
         });
