@@ -3,6 +3,7 @@ package com.dromel.proyectfinaldes6;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 public class IngresarLogin extends AppCompatActivity {
 
     private EditText et_usuario,et_password;
+    private AdminSQLiteHelper admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class IngresarLogin extends AppCompatActivity {
 
         et_usuario = (EditText)findViewById(R.id.txt_usuario);
         et_password = (EditText)findViewById(R.id.txt_password);
+        admin = new AdminSQLiteHelper(this, "db", null, 1);
     }
 
     public void registrarse (View view){
@@ -27,6 +30,8 @@ public class IngresarLogin extends AppCompatActivity {
     }
 
     public void ingresar (View view){
+        SQLiteDatabase Base = admin.getReadableDatabase();
+
 
         String nombre = et_usuario.getText().toString();
         String password = et_password.getText().toString();
