@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class IngresarLogin extends AppCompatActivity {
+public class RegistrarLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingresar_login);
+        setContentView(R.layout.activity_registrar_login);
     }
-
-
 }

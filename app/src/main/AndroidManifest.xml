@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IngresarLogin"></activity>
+        <activity android:name=".RegistrarLogin"></activity>
+        <activity android:name=".IngresarLogin" />
         <activity android:name=".actualizarTareaActivity" />
         <activity android:name=".nuevaTareaActivity" />
         <activity android:name=".TareasActivity" />
