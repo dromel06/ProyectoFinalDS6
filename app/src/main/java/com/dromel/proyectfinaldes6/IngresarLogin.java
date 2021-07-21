@@ -19,5 +19,9 @@ public class IngresarLogin extends AppCompatActivity {
         startActivity(registrarse);
     }
 
+    public void ingresar (View view){
+        Intent ingresar = new Intent(this,MainActivity.class);
+        startActivity(ingresar);
+    }
 
 }

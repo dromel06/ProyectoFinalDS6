@@ -17,6 +17,10 @@ public class AdminSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("create table tareas(" +
                 "idTareas INTEGER primary key AUTOINCREMENT," +
                 "nombre text, fecha date, estado text)");
+        db.execSQL("create table login(" +
+                "idlogin INTEGER primary key AUTOINCREMENT," +
+                "usuario text, password text)");
+
     }
 
     @Override
