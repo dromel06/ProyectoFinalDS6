@@ -34,18 +34,18 @@ public class AdaptadorTarea extends BaseAdapter {
         TextView nombre = (TextView)vista.findViewById(R.id.txtNombre);
         TextView fecha = (TextView)vista.findViewById(R.id.txtFecha);
         TextView estado = (TextView)vista.findViewById(R.id.txtEstado);
-        ConstraintLayout color = (ConstraintLayout)vista.findViewById(R.id.llColor);
+        //ConstraintLayout color = (ConstraintLayout)vista.findViewById(R.id.llColor);
 
         nombre.setText(datos[i][1]);
         fecha.setText("Fecha Limite: " + datos[i][2]);
         estado.setText(datos[i][3]);
-        if(datos[i][3].equals("Pendiente")){
-            color.setBackgroundColor(Color.RED);
-        }else if(datos[i][3].equals("En Proceso")){
-            color.setBackgroundColor(Color.BLUE);
-        }else{
-            color.setBackgroundColor(Color.GREEN);
-        }
+        //if(datos[i][3].equals("Pendiente")){
+        //    color.setBackgroundColor(Color.RED);
+        //}else if(datos[i][3].equals("En Proceso")){
+        //    color.setBackgroundColor(Color.BLUE);
+        //}else{
+        //    color.setBackgroundColor(Color.GREEN);
+        //}
 
 
 

@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RegistrarLogin"></activity>
-        <activity android:name=".IngresarLogin" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".actualizarTareaActivity" />
         <activity android:name=".nuevaTareaActivity" />
         <activity android:name=".TareasActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".IngresarLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
