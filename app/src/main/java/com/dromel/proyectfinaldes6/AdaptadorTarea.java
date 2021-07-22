@@ -36,12 +36,7 @@ public class AdaptadorTarea extends BaseAdapter {
         TextView nombre = (TextView)vista.findViewById(R.id.txtNombre);
         TextView fecha = (TextView)vista.findViewById(R.id.txtFecha);
         TextView estado = (TextView)vista.findViewById(R.id.txtEstado);
-<<<<<<< Updated upstream
         ImageView color = (ImageView)vista.findViewById(R.id.llColor);
-=======
-        ImageView color = (ImageView) vista.findViewById(R.id.llColor);
->>>>>>> Stashed changes
-
         nombre.setText(datos[i][1]);
         fecha.setText("Fecha Limite: " + datos[i][2]);
         estado.setText(datos[i][3]);
