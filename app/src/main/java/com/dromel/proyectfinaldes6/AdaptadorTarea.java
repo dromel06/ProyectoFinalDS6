@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import org.w3c.dom.Text;
 
 public class AdaptadorTarea extends BaseAdapter {
@@ -32,7 +34,7 @@ public class AdaptadorTarea extends BaseAdapter {
         TextView nombre = (TextView)vista.findViewById(R.id.txtNombre);
         TextView fecha = (TextView)vista.findViewById(R.id.txtFecha);
         TextView estado = (TextView)vista.findViewById(R.id.txtEstado);
-        LinearLayout color = (LinearLayout)vista.findViewById(R.id.llColor);
+        ConstraintLayout color = (ConstraintLayout)vista.findViewById(R.id.llColor);
 
         nombre.setText(datos[i][1]);
         fecha.setText("Fecha Limite: " + datos[i][2]);
