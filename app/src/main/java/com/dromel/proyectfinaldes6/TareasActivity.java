@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class TareasActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -17,6 +22,7 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
     ListView lv_tareas;
     AdminSQLiteHelper admin;
     AdaptadorTarea adap;
+    TextView compro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,9 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
         sp_estado = (Spinner)findViewById(R.id.spinnerEstados);
         lv_tareas = (ListView)findViewById(R.id.lvTareas);
         sp_estado.setOnItemSelectedListener(this);
+        compro = findViewById(R.id.txtMensaje);
+
+
         ListarTareas();
 
     }
@@ -35,6 +44,7 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     protected void onResume() {
         super.onResume();
+        comprobarfecha();
         ListarTareas();
     }
 
@@ -80,6 +90,29 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
 
 
 
+    }
+    protected void comprobarfecha(){
+        SQLiteDatabase base = admin.getWritableDatabase();
+        Cursor fila = base.rawQuery("SELECT * FROM tareas ORDER BY idTareas", null);
+        int i = 0;
+        if(fila.moveToFirst()){
+            do {
+                String act = getfecha();
+                String fecha = fila.getString( 2 );
+                compro.setText(fecha);
+                if(act.equals(fecha))
+                    i= 1+i;
+            }while(fila.moveToNext());
+        }
+        base.close();
+        if(i!=0){
+            compro.setText("Hay "+i+" tareas que necesitan ser entregadas hoy!");}
+        else{
+            compro.setText("No hay tareas pendientes para hoy!");}
+    }
+
+    private String getfecha(){
+        return new SimpleDateFormat("dd/M/yyyy", Locale.getDefault()).format(new Date());
     }
 
     public void  nuevaTarea(View view){
