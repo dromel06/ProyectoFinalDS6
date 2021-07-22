@@ -38,10 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="270dp" />
+        app:layout_constraintGuide_begin="104dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/llColor"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.8"
@@ -55,31 +55,35 @@
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/nombre"
         android:textColor="#FFEFEF"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="15dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/fecha"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <TextView
         android:id="@+id/txtEstado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/estado"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment {
 
-    private DatePickerDialog.OnDateSetListener listener;
+    public DatePickerDialog.OnDateSetListener listener;
 
     public static DatePickerFragment newInstance(DatePickerDialog.OnDateSetListener listener) {
         DatePickerFragment fragment = new DatePickerFragment();
