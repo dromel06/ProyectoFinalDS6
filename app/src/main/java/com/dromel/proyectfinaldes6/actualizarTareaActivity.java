@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -95,7 +96,6 @@ public class actualizarTareaActivity extends AppCompatActivity implements View.O
         else{
             Toast.makeText(this, "Todo los campos deben estar llenos", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void Eliminar(View view){
@@ -131,7 +131,7 @@ public class actualizarTareaActivity extends AppCompatActivity implements View.O
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
-                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                final String selectedDate = day + "/" + (month+1) + "/" + year;
                 txt_fecha.setText(selectedDate);
             }
         });
