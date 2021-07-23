@@ -129,7 +129,7 @@
         android:fontFamily="monospace"
         android:text="@string/eliminar"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/btnGuardarAAT"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText

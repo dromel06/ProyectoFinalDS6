@@ -19,6 +19,7 @@ public class ComentsActivity extends AppCompatActivity {
     private Button btn_save,btn_elimi, btnConsultar;
     private EditText txtMensaje;
     private TextView txtConsultar;
+    private String idTarea;
 
     Cursor dbCursor = null;
     int _id = 0;
@@ -37,6 +38,7 @@ public class ComentsActivity extends AppCompatActivity {
 
         txtMensaje = findViewById(R.id.txtMensaje);
         txtConsultar = findViewById(R.id.txtConsultar);
+        idTarea = getIntent().getStringExtra("id");
 
     }
     public void Anterior(View view){
@@ -53,6 +55,7 @@ public class ComentsActivity extends AppCompatActivity {
                 SQLiteDatabase db = appSQLiteOpenHelper.getWritableDatabase();
                 ContentValues rows = new ContentValues();
                 rows.put("mensaje", this.txtMensaje.getText().toString());
+                rows.put("idTarea", idTarea);
                 db.insert("comentario", null, rows);
                 Toast.makeText(this, "Comentario Agregado", Toast.LENGTH_LONG).show();
                 db.close();
@@ -78,7 +81,7 @@ public class ComentsActivity extends AppCompatActivity {
         dbCursor = null;
 
         try {
-            dbCursor = db.rawQuery("SELECT * FROM comentario  ORDER BY mensaje", null);
+            dbCursor = db.rawQuery("SELECT * FROM comentario where id='"+ idTarea +"'  ORDER BY mensaje", null);
             if (dbCursor !=null){
                 dbCursor.moveToFirst();
             }

@@ -24,7 +24,7 @@ public class AdminSQLiteHelper extends SQLiteOpenHelper {
                 "idlogin INTEGER primary key AUTOINCREMENT," +
                 "usuario text, password text)");
 
-        db.execSQL("create table comentarios(" +
+        db.execSQL("create table comentario(" +
                 "idComentario INTEGER primary key AUTOINCREMENT," +
                 "comentario text, idTareas INTEGER)");
 
