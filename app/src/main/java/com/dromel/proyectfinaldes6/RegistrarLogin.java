@@ -39,7 +39,7 @@ public class RegistrarLogin extends AppCompatActivity {
                 login_new.put("usuario", nombre);
                 login_new.put("password", password);
 
-                Base.insert("login", null, login_new);
+                Base.insert("logines", null, login_new);
 
                 Base.close();
 

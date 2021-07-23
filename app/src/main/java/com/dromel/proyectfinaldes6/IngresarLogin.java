@@ -3,6 +3,7 @@ package com.dromel.proyectfinaldes6;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -32,16 +33,30 @@ public class IngresarLogin extends AppCompatActivity {
     public void ingresar (View view){
         SQLiteDatabase Base = admin.getReadableDatabase();
 
-
         String nombre = et_usuario.getText().toString();
         String password = et_password.getText().toString();
 
         if (!nombre.isEmpty() && !password.isEmpty()){
-        Intent ingresar = new Intent(this,MainActivity.class);
-        startActivity(ingresar);
+            Cursor fila = Base.rawQuery("Select password from logines where usuario = '" + nombre +"'", null );
+
+            if (fila.moveToFirst()){
+
+                String et_password_validar = fila.getString(0);
+
+                if (password.equals(et_password_validar)){
+                    Intent ingresar = new Intent(this,MainActivity.class);
+                    startActivity(ingresar);
+                }
+               Base.close();
+            }
+            else {
+               Toast.makeText(this, "usuario no existe", Toast.LENGTH_SHORT).show();
+               Base.close();
+            }
     }
         else {
         Toast.makeText(this, "Debe Llenar Todos Los campos", Toast.LENGTH_SHORT).show();
+            //Base.close();
     }
     }
 }
