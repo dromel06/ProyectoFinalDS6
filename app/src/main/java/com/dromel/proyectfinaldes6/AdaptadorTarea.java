@@ -22,7 +22,6 @@ public class AdaptadorTarea extends BaseAdapter {
     Context contexto;
     String[][] datos;
     int canti;
-    Button
 
     AdaptadorTarea(Context contexto, String datos[][], int canti){
         this.contexto = contexto;

@@ -1,21 +1,19 @@
 package com.dromel.proyectfinaldes6;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dromel.proyectfinaldes6.Clases.DatePickerFragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
-import static android.app.PendingIntent.getActivity;
+import com.dromel.proyectfinaldes6.Clases.DatePickerFragment;
 
 public class nuevaTareaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,13 +24,15 @@ public class nuevaTareaActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nueva_tarea);
 
-        et_nombre = (EditText)findViewById(R.id.txtNombreANT);
-        et_fecha = (EditText)findViewById(R.id.txtfechaANT);
+        et_nombre = findViewById(R.id.txtNombreANT);
+        et_fecha = findViewById(R.id.txtfechaANT);
+        Button btn_Guardar = findViewById(R.id.btnGuardarANT);
         admin = new AdminSQLiteHelper(this, "db", null, 1);
         et_fecha.setOnClickListener(this);
+        btn_Guardar.setOnClickListener(this);
     }
 
-    public void AgregarTarea(View view){
+    public void AgregarTarea(){
         SQLiteDatabase Base = admin.getReadableDatabase();
 
         String nombre = et_nombre.getText().toString();
@@ -65,6 +65,10 @@ public class nuevaTareaActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.txtfechaANT:
                 showDatePickerDialog();
+                break;
+
+            case R.id.btnGuardarANT:
+                AgregarTarea();
                 break;
         }
     }

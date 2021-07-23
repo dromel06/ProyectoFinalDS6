@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -21,6 +22,7 @@ public class actualizarTareaActivity extends AppCompatActivity implements View.O
     String id, nombre, fecha, estado, newNombre, newFecha, newEstado;
     EditText txt_nombre, txt_fecha;
     RadioButton rb_pendiente, rb_proceso, rb_completado;
+    Button btn_eliminar, btn_actualizar;
     AdminSQLiteHelper admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +40,12 @@ public class actualizarTareaActivity extends AppCompatActivity implements View.O
         rb_pendiente = (RadioButton)findViewById(R.id.rbPendiente);
         rb_proceso = (RadioButton)findViewById(R.id.rbProceso);
         rb_completado = (RadioButton)findViewById(R.id.rbCompletado);
+//      Botones
+//        btn_actualizar = (Button)findViewById(R.id.btn
 //      activar variable admin
         admin = new AdminSQLiteHelper(this, "db", null, 1);
         txt_fecha.setOnClickListener(this);
+
         MostrarInfo();
 
     }
