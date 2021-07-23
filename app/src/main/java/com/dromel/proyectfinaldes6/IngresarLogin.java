@@ -47,6 +47,10 @@ public class IngresarLogin extends AppCompatActivity {
                     Intent ingresar = new Intent(this,MainActivity.class);
                     startActivity(ingresar);
                 }
+                else {
+
+                    Toast.makeText(this, "Password erroneo", Toast.LENGTH_SHORT).show();
+                }
                Base.close();
             }
             else {
