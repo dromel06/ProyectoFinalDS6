@@ -24,10 +24,15 @@ public class AdminSQLiteHelper extends SQLiteOpenHelper {
                 "idlogin INTEGER primary key AUTOINCREMENT," +
                 "usuario text, password text)");
 
+        db.execSQL("create table comentarios(" +
+                "idComentario INTEGER primary key AUTOINCREMENT," +
+                "comentario text, idTareas INTEGER)");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
 
     }
 }

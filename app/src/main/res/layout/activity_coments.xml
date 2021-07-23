@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/custom_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <!--    android:background="@color/morado"-->
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="Descripcion:"
+        android:textSize="24sp" />
+
+    <!--        android:textColor="@color/black"-->
+
+    <EditText
+        android:id="@+id/txtMensaje"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_margin="4dp"
+        android:gravity="start"/>
+    <!--        android:background="@color/gris"-->
+<!--        android:textColor="@color/black" />-->
+
+    <TextView
+        android:id="@+id/txtConsultar"
+        android:layout_width="fill_parent"
+        android:layout_height="255dp"
+        android:layout_margin="4dp"/>
+<!--        android:textColor="@color/black" />-->
+
+    <requestFocus />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="50"
+            android:text="Guardar"/>
+<!--            android:textColor="@color/white" />-->
+
+        <Button
+            android:id="@+id/btn_elimi"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="50"
+            android:text="Eliminar"/>
+<!--            android:textColor="@color/white" />-->
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="20"
+            android:onClick="Anterior"
+            app:icon="@android:drawable/ic_menu_revert" />
+
+        <Button
+            android:id="@+id/btnConsultar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="20"
+            app:icon="@android:drawable/ic_menu_search" />
+    </LinearLayout>
+
+</LinearLayout>

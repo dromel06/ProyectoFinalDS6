@@ -44,7 +44,7 @@ public class IngresarLogin extends AppCompatActivity {
                 String et_password_validar = fila.getString(0);
 
                 if (password.equals(et_password_validar)){
-                    Intent ingresar = new Intent(this,MainActivity.class);
+                    Intent ingresar = new Intent(this,TareasActivity.class);
                     startActivity(ingresar);
                 }
                 else {

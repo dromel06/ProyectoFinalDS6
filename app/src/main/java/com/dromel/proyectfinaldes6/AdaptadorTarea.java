@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,8 +21,8 @@ public class AdaptadorTarea extends BaseAdapter {
 
     Context contexto;
     String[][] datos;
-    private Object textView;
     int canti;
+    Button
 
     AdaptadorTarea(Context contexto, String datos[][], int canti){
         this.contexto = contexto;
@@ -37,6 +38,7 @@ public class AdaptadorTarea extends BaseAdapter {
         TextView fecha = (TextView)vista.findViewById(R.id.txtFecha);
         TextView estado = (TextView)vista.findViewById(R.id.txtEstado);
         ImageView color = (ImageView)vista.findViewById(R.id.llColor);
+//        Button Coment = (Button)vista.findViewById()
         nombre.setText(datos[i][1]);
         fecha.setText("Fecha Limite: " + datos[i][2]);
         estado.setText(datos[i][3]);
