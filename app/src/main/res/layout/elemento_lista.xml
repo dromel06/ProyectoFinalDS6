@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="81dp" />
+        app:layout_constraintGuide_begin="112dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -38,30 +38,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="-9dp" />
+        app:layout_constraintGuide_begin="2dp" />
 
     <ImageView
         android:id="@+id/llColor"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:alpha="0.8"
-        android:background="#CD2B2B"
-        android:contentDescription="@string/estado"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        android:layout_width="334dp"
+        android:layout_height="93dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:srcCompat="@drawable/esquinas_redondas_terminado" />
 
     <TextView
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:text="@string/nombre"
         android:textColor="#FFEFEF"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:translationZ="2dp"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/fecha"
+        android:textColor="#FFFFFF"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <Button
+        android:id="@+id/btnComentario"
+        android:layout_width="127dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/esquinas_redondas"
+        android:backgroundTint="#00ACC1"
+        android:text="@string/comentario"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -69,31 +92,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="20dp"
 
         android:layout_marginTop="8dp"
         android:text="@string/estado"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        android:translationZ="2dp"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-    <TextView
-        android:id="@+id/txtFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/fecha"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
-    <Button
-        android:id="@+id/btnComentario"
-        android:layout_width="132dp"
-        android:layout_height="45dp"
-        android:text="@string/comentario"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

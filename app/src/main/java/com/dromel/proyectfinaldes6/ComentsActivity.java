@@ -31,7 +31,6 @@ public class ComentsActivity extends AppCompatActivity {
 
         btn_save = findViewById(R.id.btn_save);
         btn_elimi = findViewById(R.id.btn_elimi);
-        btnConsultar = findViewById(R.id.btnConsultar);
 
         btn_save.setOnClickListener((new OnClickListener() {
             @Override
@@ -47,12 +46,7 @@ public class ComentsActivity extends AppCompatActivity {
                 GetAllData();
             }
         }));
-        btnConsultar.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                consultar();
-            }
-        });
+
 
         txtMensaje = findViewById(R.id.txtMensaje);
         txtConsultar = findViewById(R.id.txtConsultar);
@@ -60,10 +54,7 @@ public class ComentsActivity extends AppCompatActivity {
         GetAllData();
 
     }
-    public void Anterior(View view){
-        Intent anterior = new Intent(this, MainActivity.class);
-        startActivity(anterior);
-    }
+
 
     public Boolean setData()
     {
@@ -82,8 +73,7 @@ public class ComentsActivity extends AppCompatActivity {
                 sw= true;
                 this.txtMensaje.setText("");
                 this.GetAllData();
-                Intent a = new Intent(this, MainActivity.class);
-//                startActivity(a);
+
             }catch (Exception e){
                 Toast.makeText(this, "Error al ingresar comentario", Toast.LENGTH_LONG).show();
 
@@ -175,11 +165,6 @@ public class ComentsActivity extends AppCompatActivity {
                     GetAllData();
                 }
                 break;
-
-            case R.id.btnConsultar:
-                consultar();
-                break;
-
         }
     }
 }

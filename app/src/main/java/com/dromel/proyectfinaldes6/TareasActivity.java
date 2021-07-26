@@ -1,6 +1,7 @@
 package com.dromel.proyectfinaldes6;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -76,15 +77,16 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
 
         lv_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent actualizar = new Intent(view.getContext(), actualizarTareaActivity.class);
-                actualizar.putExtra("id", lista[position][0]);
-                actualizar.putExtra("nombre", lista[position][1]);
-                actualizar.putExtra("fecha", lista[position][2]);
-                actualizar.putExtra("estado", lista[position][3]);
+                actualizar.putExtra("id", lista[i][0]);
+                actualizar.putExtra("nombre", lista[i][1]);
+                actualizar.putExtra("fecha", lista[i][2]);
+                actualizar.putExtra("estado", lista[i][3]);
                 startActivity(actualizar);
             }
         });
+
 
 
 
@@ -116,10 +118,10 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void  nuevaTarea(View view){
-        Intent intent = new Intent(this, nuevaTareaActivity.class);
+        Intent intent = new Intent(this, TareaNuevaActivity.class);
         startActivity(intent);
     }
-
+    
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

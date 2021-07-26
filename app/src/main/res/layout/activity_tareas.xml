@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ColorBase"
     tools:context=".TareasActivity">
 
     <TextView
@@ -62,26 +63,27 @@
         android:backgroundTintMode="add"
         android:clickable="true"
         android:contentDescription="@string/nuevaTarea"
+        android:focusable="true"
         android:onClick="nuevaTarea"
         android:src="@drawable/ic_boton_agregar"
         app:borderWidth="0dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="56dp"
-        android:focusable="true" />
+        app:maxImageSize="56dp" />
 
     <ListView
         android:id="@+id/lvTareas"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:entries="@android:array/imProtocols"
+        android:dividerHeight="1dp"
+        android:entries="@android:array/emailAddressTypes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0" >
+        app:layout_constraintVertical_bias="0.0">
 
     </ListView>
 

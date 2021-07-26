@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ComentsActivity"></activity>
+        <activity android:name=".TareaNuevaActivity"></activity>
+        <activity android:name=".TareaActualizarActivity" />
+        <activity android:name=".ComentsActivity" />
         <activity android:name=".RegistrarLogin" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".actualizarTareaActivity" />
-        <activity android:name=".nuevaTareaActivity" />
         <activity android:name=".TareasActivity" />
         <activity android:name=".IngresarLogin">
             <intent-filter>

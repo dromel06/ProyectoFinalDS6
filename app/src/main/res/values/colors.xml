@@ -3,4 +3,10 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="ColorBase">#A1CFCF</color>
+    <color name="ColorLinea">#FFFFFF</color>
+    <color name="ColorPendiente">#DE435B</color>
+    <color name="ColorProceso">#66D9FF</color>
+    <color name="ColorTerminado">#2F542D</color>
+
 </resources>

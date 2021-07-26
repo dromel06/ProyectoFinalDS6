@@ -1,5 +1,8 @@
 package com.dromel.proyectfinaldes6;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,27 +13,27 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-
 import com.dromel.proyectfinaldes6.Clases.DatePickerFragment;
 
-public class nuevaTareaActivity extends AppCompatActivity implements View.OnClickListener {
+public class TareaNuevaActivity extends AppCompatActivity {
+
 
     private EditText et_nombre, et_fecha;
     private AdminSQLiteHelper admin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nueva_tarea);
+        setContentView(R.layout.activity_tarea_nueva);
 
-        et_nombre = findViewById(R.id.txtNombreANT);
-        et_fecha = findViewById(R.id.txtfechaANT);
-        Button btn_Guardar = findViewById(R.id.btnGuardarANT);
+        et_nombre = findViewById(R.id.txtNombreATN);
+        et_fecha = findViewById(R.id.txtFechaATN);
+        Button btn_guardar = findViewById(R.id.btnGuardarATN);
         admin = new AdminSQLiteHelper(this, "db", null, 1);
-        et_fecha.setOnClickListener(this);
-        btn_Guardar.setOnClickListener(this);
+        et_fecha.setOnClickListener(this::onClick);
+        btn_guardar.setOnClickListener(this::onClick);
     }
+
 
     public void AgregarTarea(){
         SQLiteDatabase Base = admin.getReadableDatabase();
@@ -60,14 +63,13 @@ public class nuevaTareaActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    @Override
+
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.txtfechaANT:
+            case R.id.txtFechaATN:
                 showDatePickerDialog();
                 break;
-
-            case R.id.btnGuardarANT:
+            case R.id.btnGuardarATN:
                 AgregarTarea();
                 break;
         }

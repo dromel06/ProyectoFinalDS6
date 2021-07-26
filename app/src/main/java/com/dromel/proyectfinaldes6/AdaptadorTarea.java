@@ -42,12 +42,14 @@ public class AdaptadorTarea extends BaseAdapter {
         nombre.setText(datos[i][1]);
         fecha.setText("Fecha Limite: " + datos[i][2]);
         estado.setText(datos[i][3]);
+
         if(datos[i][3].equals("Pendiente")){
-            color.setBackgroundColor(Color.RED);
+            color.setBackgroundResource(R.drawable.esquinas_redondas_pendiente);
+
         }else if(datos[i][3].equals("En Proceso")){
-            color.setBackgroundColor(Color.BLUE);
+            color.setBackgroundColor(R.drawable.esquinas_redondas_proceso);
         }else{
-            color.setBackgroundColor(Color.GREEN);
+            color.setBackgroundColor(R.drawable.esquinas_redondas_terminado);
         }
         Coment.setTag(i);
         Coment.setOnClickListener(new View.OnClickListener() {

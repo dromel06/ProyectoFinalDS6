@@ -4,6 +4,7 @@
     android:id="@+id/custom_root_layout"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
+    android:background="@color/ColorBase"
     android:orientation="vertical">
     <!--    android:background="@color/morado"-->
 
@@ -20,19 +21,20 @@
 
     <EditText
         android:id="@+id/txtMensaje"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="fill_parent"
         android:layout_height="100dp"
         android:layout_margin="4dp"
-        android:gravity="start"/>
+        android:gravity="start" />
     <!--        android:background="@color/gris"-->
-<!--        android:textColor="@color/black" />-->
+    <!--        android:textColor="@color/black" />-->
 
     <TextView
         android:id="@+id/txtConsultar"
         android:layout_width="fill_parent"
         android:layout_height="255dp"
-        android:layout_margin="4dp"/>
-<!--        android:textColor="@color/black" />-->
+        android:layout_margin="4dp" />
+    <!--        android:textColor="@color/black" />-->
 
     <requestFocus />
 
@@ -42,36 +44,39 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal">
 
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="54dp"
+            android:layout_weight="1" />
+
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="50"
-            android:text="Guardar"/>
-<!--            android:textColor="@color/white" />-->
+            android:background="@drawable/esquinas_redondas"
+            android:text="Guardar" />
+        <!--            android:textColor="@color/white" />-->
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="54dp"
+            android:layout_weight="0.00001" />
 
         <Button
             android:id="@+id/btn_elimi"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="50"
-            android:text="Eliminar"/>
-<!--            android:textColor="@color/white" />-->
+            android:background="@drawable/esquinas_redondas"
+            android:text="Eliminar" />
 
-        <Button
-            android:id="@+id/btnGuardarANT"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="20"
-            android:onClick="Anterior"
-            app:icon="@android:drawable/ic_menu_revert" />
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="54dp"
+            android:layout_weight="1" />
+        <!--            android:textColor="@color/white" />-->
 
-        <Button
-            android:id="@+id/btnConsultar"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="20"
-            app:icon="@android:drawable/ic_menu_search" />
     </LinearLayout>
 
 </LinearLayout>
