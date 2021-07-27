@@ -12,18 +12,20 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class TareasActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class TareasActivity extends AppCompatActivity {
 
     Spinner sp_estado;
     ListView lv_tareas;
     AdminSQLiteHelper admin;
     AdaptadorTarea adap;
     TextView compro;
+    String[][] lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +33,20 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_tareas);
 
         admin = new AdminSQLiteHelper(this, "db", null, 1);
-        sp_estado = (Spinner)findViewById(R.id.spinnerEstados);
-        lv_tareas = (ListView)findViewById(R.id.lvTareas);
-        sp_estado.setOnItemSelectedListener(this);
+        sp_estado = findViewById(R.id.spinnerEstados);
+        lv_tareas = findViewById(R.id.lvTareas);
+        sp_estado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ListarTareas();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                ListarTareas();
+            }
+        });
+
         compro = findViewById(R.id.txtMensaje);
 
 
@@ -72,27 +85,26 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
 
         }
         base.close();
+
         adap = new AdaptadorTarea(this, lista, fila.getCount());
         lv_tareas.setAdapter(adap);
 
-        lv_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent actualizar = new Intent(view.getContext(), actualizarTareaActivity.class);
-                actualizar.putExtra("id", lista[i][0]);
-                actualizar.putExtra("nombre", lista[i][1]);
-                actualizar.putExtra("fecha", lista[i][2]);
-                actualizar.putExtra("estado", lista[i][3]);
-                startActivity(actualizar);
-            }
-        });
-
-
-
-
+//
+//        lv_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent actualizar = new Intent(view.getContext(), actualizarTareaActivity.class);
+//                actualizar.putExtra("id", lista[position][0]);
+//                actualizar.putExtra("nombre", lista[position][1]);
+//                actualizar.putExtra("fecha", lista[position][2]);
+//                actualizar.putExtra("estado", lista[position][3]);
+//                startActivity(actualizar);
+//            }
+//        });
 
 
     }
+    
     protected void comprobarfecha(){
         SQLiteDatabase base = admin.getWritableDatabase();
         Cursor fila = base.rawQuery("SELECT * FROM tareas ORDER BY idTareas", null);
@@ -123,13 +135,4 @@ public class TareasActivity extends AppCompatActivity implements AdapterView.OnI
     }
     
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        ListarTareas();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        ListarTareas();
-    }
 }

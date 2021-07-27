@@ -79,7 +79,7 @@ public class TareaNuevaActivity extends AppCompatActivity {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                // +1 because January is zero
+                // +1 porque enero es cero
                 final String selectedDate = day + "/" + (month+1) + "/" + year;
                 et_fecha.setText(selectedDate);
             }

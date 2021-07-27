@@ -18,7 +18,7 @@
     <string name="proceso">En Proceso</string>
     <string name="completado">Completado</string>
     <string name="spn_title">Escoja un estado</string>
-    <string name="comentario">Comentario</string>
+    <string name="comentario">Comentarios</string>
     <string-array name="estados">
         <item>Todo</item>
         <item>Pendiente</item>

@@ -1,82 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/custom_root_layout"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@color/ColorBase"
-    android:orientation="vertical">
+    android:background="@color/ColorBase">
     <!--    android:background="@color/morado"-->
+
+
+    <!--            android:textColor="@color/white" />-->
+
+    <!--            android:textColor="@color/white" />-->
+
+
+    <!--        android:textColor="@color/black"-->
+
+    <!--        android:background="@color/gris"-->
+    <!--        android:textColor="@color/black" />-->
+
+    <!--        android:textColor="@color/black" />-->
 
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:padding="10dp"
-        android:text="Descripcion:"
-        android:textSize="24sp" />
-
-    <!--        android:textColor="@color/black"-->
+        android:text="@string/comentario"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtMensaje"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:layout_margin="4dp"
-        android:gravity="start" />
-    <!--        android:background="@color/gris"-->
-    <!--        android:textColor="@color/black" />-->
+        android:layout_width="277dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints="@string/comentario"
+        android:gravity="start"
+        android:hint="@string/comentario"
+        android:inputType="textLongMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
-    <TextView
-        android:id="@+id/txtConsultar"
-        android:layout_width="fill_parent"
-        android:layout_height="255dp"
-        android:layout_margin="4dp" />
-    <!--        android:textColor="@color/black" />-->
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:background="@drawable/esquinas_redondas"
+        android:text="Guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toEndOf="@+id/txtMensaje"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <requestFocus />
+    <ListView
+        android:id="@+id/lvComentario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="204dp" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="54dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="50"
-            android:background="@drawable/esquinas_redondas"
-            android:text="Guardar" />
-        <!--            android:textColor="@color/white" />-->
-
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="54dp"
-            android:layout_weight="0.00001" />
-
-        <Button
-            android:id="@+id/btn_elimi"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="50"
-            android:background="@drawable/esquinas_redondas"
-            android:text="Eliminar" />
-
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="54dp"
-            android:layout_weight="1" />
-        <!--            android:textColor="@color/white" />-->
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

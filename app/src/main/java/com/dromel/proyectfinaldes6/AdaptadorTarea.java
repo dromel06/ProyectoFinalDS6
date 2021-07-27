@@ -2,6 +2,7 @@ package com.dromel.proyectfinaldes6;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.media.Image;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -47,9 +49,9 @@ public class AdaptadorTarea extends BaseAdapter {
             color.setBackgroundResource(R.drawable.esquinas_redondas_pendiente);
 
         }else if(datos[i][3].equals("En Proceso")){
-            color.setBackgroundColor(R.drawable.esquinas_redondas_proceso);
+            color.setBackgroundResource(R.drawable.esquinas_redondas_proceso);
         }else{
-            color.setBackgroundColor(R.drawable.esquinas_redondas_terminado);
+            color.setBackgroundResource(R.drawable.esquinas_redondas_terminado);
         }
         Coment.setTag(i);
         Coment.setOnClickListener(new View.OnClickListener() {
@@ -58,11 +60,20 @@ public class AdaptadorTarea extends BaseAdapter {
                 Intent intent = new Intent(contexto, ComentsActivity.class);
                 intent.putExtra("id", datos[(Integer)view.getTag()][0]);
                 contexto.startActivity(intent);
-
             }
         });
-
-
+        color.setTag(i);
+        color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent actualizar = new Intent(view.getContext(), actualizarTareaActivity.class);
+                actualizar.putExtra("id", datos[(Integer)view.getTag()][0]);
+                actualizar.putExtra("nombre", datos[(Integer)view.getTag()][1]);
+                actualizar.putExtra("fecha", datos[(Integer)view.getTag()][2]);
+                actualizar.putExtra("estado", datos[(Integer)view.getTag()][3]);
+                contexto.startActivity(actualizar);
+            }
+        });
 
         return vista;
     }
@@ -81,6 +92,8 @@ public class AdaptadorTarea extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
+
+
 
 
 }

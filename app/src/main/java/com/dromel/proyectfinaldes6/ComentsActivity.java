@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class ComentsActivity extends AppCompatActivity {
     private EditText txtMensaje;
     private TextView txtConsultar;
     private String idTarea;
+    ListView lv_comentario;
 
     Cursor dbCursor = null;
     int _id = 0;
@@ -30,7 +32,7 @@ public class ComentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_coments);
 
         btn_save = findViewById(R.id.btn_save);
-        btn_elimi = findViewById(R.id.btn_elimi);
+//        btn_elimi = findViewById(R.id.btn_elimi);
 
         btn_save.setOnClickListener((new OnClickListener() {
             @Override
@@ -39,17 +41,18 @@ public class ComentsActivity extends AppCompatActivity {
                 setData();
             }
         }));
-        btn_elimi.setOnClickListener((new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DeleteRecord();
-                GetAllData();
-            }
-        }));
+//        btn_elimi.setOnClickListener((new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DeleteRecord();
+//                GetAllData();
+//            }
+//        }));
+        lv_comentario = findViewById(R.id.lvComentario);
 
 
         txtMensaje = findViewById(R.id.txtMensaje);
-        txtConsultar = findViewById(R.id.txtConsultar);
+//        txtConsultar = findViewById(R.id.txtConsultar);
         idTarea = getIntent().getStringExtra("id");
         GetAllData();
 
@@ -86,20 +89,35 @@ public class ComentsActivity extends AppCompatActivity {
 
     }
 
-    private void GetAllData() {
+    public void GetAllData() {
         AdminSQLiteHelper appSQLiteOpenHepler= new AdminSQLiteHelper(this, "db", null, 1);
         SQLiteDatabase db = appSQLiteOpenHepler.getWritableDatabase();
         dbCursor = null;
         try {
             dbCursor = db.rawQuery("SELECT * FROM comentario WHERE idTareas="+ idTarea +"  ORDER BY comentario;", null);
-            if (dbCursor !=null){
-                dbCursor.moveToFirst();
-                String cod= dbCursor.getString(0);
-                String name= dbCursor.getString(1);
-                txtConsultar.append(""+cod+" - "+ name +"\n");
-                txtConsultar.setMovementMethod(new ScrollingMovementMethod());
+
+            final String[][] lista = new String[dbCursor.getCount()][4];
+            if(dbCursor.moveToFirst()){
+                do{
+                    lista[dbCursor.getPosition()][0] = dbCursor.getString(0);
+                    lista[dbCursor.getPosition()][1] = dbCursor.getString(1);
+                    lista[dbCursor.getPosition()][2] = dbCursor.getString(2);
+
+                }while(dbCursor.moveToNext());
 
             }
+            db.close();
+            AdaptadorComentario adap = new AdaptadorComentario(this, lista, dbCursor.getCount());
+            lv_comentario.setAdapter(adap);
+
+//            if (dbCursor !=null){
+//                dbCursor.moveToFirst();
+//                String cod= dbCursor.getString(0);
+//                String name= dbCursor.getString(1);
+//                txtConsultar.append(""+cod+" - "+ name +"\n");
+//                txtConsultar.setMovementMethod(new ScrollingMovementMethod());
+//
+//            }
         }catch (Exception e){
 
         }
@@ -159,12 +177,12 @@ public class ComentsActivity extends AppCompatActivity {
                 sw = setData();
                 break;
 
-            case R.id.btn_elimi:
-                if (_id > 0){
-                    DeleteRecord();
-                    GetAllData();
-                }
-                break;
+//            case R.id.btn_elimi:
+//                if (_id > 0){
+//                    DeleteRecord();
+//                    GetAllData();
+//                }
+//                break;
         }
     }
 }

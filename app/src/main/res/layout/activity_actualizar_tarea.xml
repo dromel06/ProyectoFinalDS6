@@ -112,6 +112,7 @@
             android:id="@+id/rbPendiente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
             android:text="@string/pendiente" />
 
 
@@ -119,6 +120,7 @@
             android:id="@+id/rbProceso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
             android:text="@string/proceso" />
 
 
@@ -126,6 +128,7 @@
             android:id="@+id/rbCompletado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
             android:text="@string/completado" />
     </RadioGroup>
 
@@ -138,6 +141,7 @@
         android:background="@drawable/esquinas_redondas"
         android:backgroundTintMode="src_over"
         android:fontFamily="monospace"
+        android:onClick="Actualizar"
         android:text="@string/guardar"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
@@ -152,6 +156,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/esquinas_redondas"
         android:fontFamily="monospace"
+        android:onClick="Eliminar"
         android:text="@string/eliminar"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/btnGuardarAAT"

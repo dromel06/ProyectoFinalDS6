@@ -74,16 +74,16 @@
 
     <ListView
         android:id="@+id/lvTareas"
+        style="@style/Widget.AppCompat.Light.ListView.DropDown"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:dividerHeight="1dp"
-        android:entries="@android:array/emailAddressTypes"
+        android:clickable="true"
+        android:entries="@android:array/phoneTypes"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/guideline3">
 
     </ListView>
 
